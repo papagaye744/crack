@@ -12,8 +12,10 @@ Object.defineProperty(originalNet, "request", {
     return function (options, callback) {
       let url = options["url"];
       // options.headers["Authorization"] = "Bearer YOUR_TOKEN";
-      if (url.indexOf("/_api/share/vana_map/?lang=zh") > -1 ||
-        url.indexOf("/_api/share/maps") > -1 //修复在线图库
+      if (url.indexOf("/_api/share/vana_map/?lang=zh") > -1
+        || url.indexOf("/_api/share/maps") > -1 //修复在线图库
+        || url.indexOf("/_api/paywall/desktop") > -1
+        || url.indexOf("/_res/templates/meta") > -1
       ) {
       } else url = url.replace("https://www.xmind.cn", "http://127.0.0.1:3000");
       options["url"] = url;
